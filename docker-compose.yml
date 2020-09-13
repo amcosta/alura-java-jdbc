@@ -1,0 +1,13 @@
+version: "3.5"
+services:
+    mysql:
+        image: library/mysql:8.0.11
+        container_name: java-jdbc-mysql
+        ports:
+            - 3301:3306
+        volumes:
+            - ./var/mysql:/var/lib/mysql
+            - ./my.cnf:/etc/mysql/my.cnf
+        environment:
+            MYSQL_DATABASE: "loja_virtual"
+            MYSQL_ROOT_PASSWORD: "java-jdbc"
