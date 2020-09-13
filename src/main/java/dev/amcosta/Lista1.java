@@ -1,6 +1,6 @@
 package dev.amcosta;
 
-import dev.amcosta.connection.ConnectionFactory;
+import dev.amcosta.factory.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,7 +9,8 @@ import java.sql.Statement;
 
 public class Lista1 {
     public static void main(String[] args) throws SQLException {
-        Connection con = ConnectionFactory.create();
+        ConnectionFactory factory = new ConnectionFactory();
+        Connection con = factory.create();
         Statement statement = con.createStatement();
         statement.execute("SELECT * FROM produtos");
         ResultSet resultSet = statement.getResultSet();
